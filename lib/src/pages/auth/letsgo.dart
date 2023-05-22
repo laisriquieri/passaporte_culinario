@@ -1,7 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
-import 'package:passaporte_culinario/src/pages/auth/sign_in_page.dart';
 
 class LetsGo extends StatefulWidget {
   const LetsGo({Key? key}) : super(key: key);
