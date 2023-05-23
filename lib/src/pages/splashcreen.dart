@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:passaporte_culinario/src/pages/auth/sign_in_page.dart';
+import 'package:passaporte_culinario/src/pages/auth/letsgo.dart';
 
 void main() {
   runApp(MaterialApp(home: SplashScreen()));
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (c) {
-        return const SignInScreen();
+        return const LetsGo();
       }));
     });
   }

@@ -11,7 +11,7 @@ class _LetsGoState extends State<LetsGo> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xFF991b32),
+      backgroundColor: Color(0xFF000000),
       body: SingleChildScrollView(),
     );
   }
