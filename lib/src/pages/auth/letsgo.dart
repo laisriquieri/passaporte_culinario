@@ -61,6 +61,20 @@ class _LetsGoState extends State<LetsGo> {
                       height: 550,
                     ),
                   ),
+                  Container(
+                    width: size.width,
+                    height: 600,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          Color(0xFF991b32),
+                        ],
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     width: size.width,
                     height: 1000,
