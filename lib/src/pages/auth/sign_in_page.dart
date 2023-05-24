@@ -2,121 +2,221 @@ import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/config/custom_colors.dart';
 import 'package:passaporte_culinario/src/config/custom_text_field.dart';
 import 'package:passaporte_culinario/src/pages/home.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  SignInScreen({Key? key}) : super(key: key);
+
+  final cpfFormatter = MaskTextInputFormatter(
+    mask: '###.###.###-##',
+    filter: {'#': RegExp(r'[0-9]')},
+  );
+
+  final phoneFormatter = MaskTextInputFormatter(
+    mask: '## # ####-####',
+    filter: {'#': RegExp(r'[0-9]')},
+  );
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      backgroundColor: CustomColors.customSwatchColor,
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: size.height,
-          width: size.width,
-          child: Column(
-            children: [
-              //Card branco
-
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 80,
-                ),
-                decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius:
-                        BorderRadius.vertical(bottom: Radius.circular(45))),
-                child: const Column(
-                  children: [
-                    Text.rich(
-                      TextSpan(
-                        style: TextStyle(
-                          fontSize: 12,
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: CustomColors.customSwatchColor,
+        body: Column(
+          children: [
+            //Card branco
+            Container(
+              padding: const EdgeInsets.only(
+                left: 32,
+                right: 32,
+                bottom: 0,
+                top: 40,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 6,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+                borderRadius:
+                    const BorderRadius.vertical(bottom: Radius.circular(35)),
+              ),
+              child: Column(
+                children: [
+                  Image.asset(
+                    'assets/logo_passaporte_culinario.png',
+                    height: 200,
+                  ),
+                  const SizedBox(
+                      height:
+                          10), // Adicione um espaço entre a imagem e as Tabs
+                  const SizedBox(
+                    height: 40, // Altura do Container
+                    child: TabBar(
+                      indicatorColor: Color(0xFF991b32),
+                      tabs: [
+                        Tab(
+                          child: Text(
+                            'Login',
+                            style: TextStyle(
+                              color: Color(0xFF000000),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
+                        Tab(
+                          child: Text(
+                            'Criar Conta',
+                            style: TextStyle(
+                              color: Color(0xFF000000),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  // Login
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 40,
+                    ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          TextSpan(
-                              text: "Login",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          TextSpan(
-                              text: 'Criar Conta',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ))
+                          // Email
+                          const CustomTextField(
+                            icon: Icons.email,
+                            label: "Email",
+                          ),
+                          // Senha
+                          const CustomTextField(
+                            icon: Icons.lock,
+                            label: "Senha",
+                            isSecret: true,
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                "Esqueceu a senha?",
+                                style: TextStyle(
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF991b32),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                    builder: (c) {
+                                      return const Home();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                "Entrar",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 32),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    //Email
-                    const CustomTextField(
-                      icon: Icons.email,
-                      label: "Email",
-                    ),
-                    //Senha
-                    const CustomTextField(
-                      icon: Icons.lock,
-                      label: "Senha",
-                      isSecret: true,
-                    ),
-
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Esqueceu a senha?",
-                          style: TextStyle(
-                            color: Colors.red,
+                  ),
+                  // Criar Conta
+                  SingleChildScrollView(
+                    child: SizedBox(
+                      height: size.height,
+                      width: size.width,
+                      child: Stack(
+                        children: [
+                          Column(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 32,
+                                  vertical: 40,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    const CustomTextField(
+                                      icon: Icons.email,
+                                      label: 'Email',
+                                    ),
+                                    const CustomTextField(
+                                      icon: Icons.lock,
+                                      label: 'Senha',
+                                      isSecret: true,
+                                    ),
+                                    const CustomTextField(
+                                      icon: Icons.person,
+                                      label: 'Nome',
+                                    ),
+                                    SizedBox(
+                                      height: 50,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor:
+                                              const Color(0xFF991b32),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(18),
+                                          ),
+                                        ),
+                                        onPressed: () {},
+                                        child: const Text(
+                                          'Cadastrar Usuário',
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
+                        ],
                       ),
                     ),
-
-                    SizedBox(
-                      height: 50,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF991b32),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (c) {
-                                return Home();
-                              },
-                            ),
-                          );
-                        },
-                        child: const Text(
-                          "Entrar",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/pages/auth/sign_in_page.dart';
 import 'package:passaporte_culinario/src/pages/home.dart';
@@ -15,9 +17,9 @@ class _LetsGoState extends State<LetsGo> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-        backgroundColor: Color(0xD9991b32),
+        backgroundColor: const Color(0xD9991b32),
         body: Container(
-          margin: EdgeInsets.only(top: 50),
+          margin: const EdgeInsets.only(top: 50),
           child: SingleChildScrollView(
             child: Column(children: [
               const Text.rich(
@@ -90,7 +92,7 @@ class _LetsGoState extends State<LetsGo> {
                             height: 60,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFFffffff),
+                                backgroundColor: const Color(0xFFffffff),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
                                 ),
@@ -129,7 +131,7 @@ class _LetsGoState extends State<LetsGo> {
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(
                                   builder: (c) {
-                                    return Home();
+                                    return const Home();
                                   },
                                 ));
                               },
