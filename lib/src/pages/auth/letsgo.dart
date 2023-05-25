@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/pages/auth/sign_in_page.dart';
 import 'package:passaporte_culinario/src/pages/home.dart';
