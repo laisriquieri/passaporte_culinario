@@ -56,8 +56,8 @@ class _LetsGoState extends State<LetsGo> {
             child: Stack(
               children: [
                 Positioned(
-                  top: 40,
-                  left: -80,
+                  top: 75,
+                  left: -75,
                   child: Image.asset(
                     'assets/inclinado.png',
                     width: 550,
