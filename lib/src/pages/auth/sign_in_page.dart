@@ -122,6 +122,9 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                          const SizedBox(
+                            height: 60,
+                          ),
                           SizedBox(
                             height: 50,
                             child: ElevatedButton(

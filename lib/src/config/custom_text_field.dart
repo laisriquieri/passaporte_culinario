@@ -55,7 +55,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   icon:
                       Icon(isObscure ? Icons.visibility : Icons.visibility_off))
               : null,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(18)),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18),
+            borderSide: const BorderSide(
+              color: Color(0xff707070),
+              width: 2.0,
+            ),
+          ),
         ),
       ),
     );
