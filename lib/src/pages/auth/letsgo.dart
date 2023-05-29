@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/pages/auth/sign_in_page.dart';
 import 'package:passaporte_culinario/src/pages/home.dart';
@@ -18,7 +20,7 @@ class _LetsGoState extends State<LetsGo> {
         backgroundColor: const Color(0xD9991b32),
         body: Column(children: [
           Container(
-            padding: EdgeInsets.only(top: 60),
+            padding: const EdgeInsets.only(top: 100),
             child: const Text.rich(
               TextSpan(
                 style: TextStyle(
@@ -54,7 +56,7 @@ class _LetsGoState extends State<LetsGo> {
             child: Stack(
               children: [
                 Positioned(
-                  top: 75,
+                  top: 55,
                   left: -75,
                   child: Image.asset(
                     'assets/inclinado.png',
@@ -81,7 +83,7 @@ class _LetsGoState extends State<LetsGo> {
                   height: size.height,
                   child: Container(
                     padding: const EdgeInsets.only(
-                        left: 32, right: 32, bottom: 50, top: 510),
+                        left: 32, right: 32, bottom: 50, top: 490),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -128,7 +130,7 @@ class _LetsGoState extends State<LetsGo> {
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (c) {
-                                  return const Home();
+                                  return Home();
                                 },
                               ));
                             },

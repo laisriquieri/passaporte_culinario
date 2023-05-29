@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Passaporte Culinário',
-      theme: ThemeData(),
+      theme: ThemeData(
+        primarySwatch: Colors.grey,
+      ),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
     );

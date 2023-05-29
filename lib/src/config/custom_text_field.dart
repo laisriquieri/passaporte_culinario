@@ -25,11 +25,25 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool isObscure = false;
+  bool isFocused = false;
+  late FocusNode focusNode;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     isObscure = widget.isSecret;
+    focusNode = FocusNode();
+    focusNode.addListener(() {
+      setState(() {
+        isFocused = focusNode.hasFocus;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    focusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -37,12 +51,32 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
       child: TextFormField(
+        focusNode: focusNode,
         readOnly: widget.readOnly,
         initialValue: widget.initialValue,
         inputFormatters: widget.inputFormatters,
         obscureText: isObscure,
+        style: const TextStyle(
+          color: Colors.black, // Cor do texto quando em foco
+        ),
         decoration: InputDecoration(
-          prefixIcon: Icon(widget.icon),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(18),
+            borderSide: BorderSide(
+              color: isFocused
+                  ? Colors.black
+                  : Colors.grey, // Define a cor da borda quando em foco
+              width: 2.0, // Define a largura da borda
+            ),
+          ),
+          prefixIcon: IconTheme(
+            data: IconThemeData(
+              color: isFocused
+                  ? Colors.black
+                  : Colors.grey, // Cor do ícone quando em foco
+            ),
+            child: Icon(widget.icon),
+          ),
           labelText: widget.label,
           isDense: true,
           suffixIcon: widget.isSecret
@@ -52,8 +86,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       isObscure = !isObscure;
                     });
                   },
-                  icon:
-                      Icon(isObscure ? Icons.visibility : Icons.visibility_off))
+                  icon: Icon(
+                    isObscure ? Icons.visibility : Icons.visibility_off,
+                    color: isFocused
+                        ? Colors.black
+                        : Colors.grey, // Cor do ícone quando em foco
+                  ),
+                )
               : null,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(18),

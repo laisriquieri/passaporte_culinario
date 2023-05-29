@@ -33,7 +33,7 @@ class SignInScreen extends StatelessWidget {
                 left: 32,
                 right: 32,
                 bottom: 0,
-                top: 40,
+                top: 60,
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -123,7 +123,7 @@ class SignInScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(
-                            height: 60,
+                            height: 200,
                           ),
                           SizedBox(
                             height: 50,
@@ -138,7 +138,7 @@ class SignInScreen extends StatelessWidget {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
                                     builder: (c) {
-                                      return const Home();
+                                      return Home();
                                     },
                                   ),
                                 );
@@ -146,8 +146,8 @@ class SignInScreen extends StatelessWidget {
                               child: const Text(
                                 "Entrar",
                                 style: TextStyle(
+                                  color: Color(0xffffffff),
                                   fontSize: 18,
-                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -187,6 +187,9 @@ class SignInScreen extends StatelessWidget {
                                       icon: Icons.person,
                                       label: 'Nome',
                                     ),
+                                    const SizedBox(
+                                      height: 180,
+                                    ),
                                     SizedBox(
                                       height: 50,
                                       child: ElevatedButton(
@@ -202,6 +205,7 @@ class SignInScreen extends StatelessWidget {
                                         child: const Text(
                                           'Cadastrar Usuário',
                                           style: TextStyle(
+                                            color: Color(0xffffffff),
                                             fontSize: 18,
                                           ),
                                         ),
