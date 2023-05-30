@@ -51,7 +51,7 @@ class Home extends StatelessWidget {
             Column(
               children: [
                 const ListTile(
-                  title: Text('Carrossel 1'),
+                  title: Text('África'),
                 ),
                 SizedBox(
                   height: 200, // Defina a altura desejada
@@ -92,7 +92,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 const ListTile(
-                  title: Text('Carrossel 2'),
+                  title: Text('América'),
                 ),
                 SizedBox(
                   height: 200, // Defina a altura desejada
@@ -133,7 +133,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 const ListTile(
-                  title: Text('Carrossel 3'),
+                  title: Text('Antártica'),
                 ),
                 SizedBox(
                   height: 200, // Defina a altura desejada
@@ -174,7 +174,89 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 const ListTile(
-                  title: Text('Carrossel 4'),
+                  title: Text('Ásia'),
+                ),
+                SizedBox(
+                  height: 200, // Defina a altura desejada
+                  child: CarouselSlider.builder(
+                    itemCount: cardData.length,
+                    itemBuilder:
+                        (BuildContext context, int index, int realIndex) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 0, left: 15),
+                        child: Card(
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Container(
+                            width: 150,
+                            child: Center(
+                              child: Text(cardData[index]),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                      aspectRatio: 12 / 6,
+                      viewportFraction: 0.4,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: false,
+                      autoPlayInterval: const Duration(seconds: 3),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
+                ),
+                const ListTile(
+                  title: Text('Europa'),
+                ),
+                SizedBox(
+                  height: 200, // Defina a altura desejada
+                  child: CarouselSlider.builder(
+                    itemCount: cardData.length,
+                    itemBuilder:
+                        (BuildContext context, int index, int realIndex) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 0, left: 15),
+                        child: Card(
+                          elevation: 4,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Container(
+                            width: 150,
+                            child: Center(
+                              child: Text(cardData[index]),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                      aspectRatio: 12 / 6,
+                      viewportFraction: 0.4,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: false,
+                      autoPlayInterval: const Duration(seconds: 3),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
+                ),
+                const ListTile(
+                  title: Text('Oceania'),
                 ),
                 SizedBox(
                   height: 200, // Defina a altura desejada
