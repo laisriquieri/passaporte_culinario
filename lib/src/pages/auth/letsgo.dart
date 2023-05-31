@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/pages/auth/sign_in_page.dart';
-import 'package:passaporte_culinario/src/pages/home.dart';
+import 'package:passaporte_culinario/src/pages/base_screen.dart';
 
 class LetsGo extends StatefulWidget {
   const LetsGo({Key? key}) : super(key: key);
@@ -130,7 +130,7 @@ class _LetsGoState extends State<LetsGo> {
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (c) {
-                                  return Home();
+                                  return BaseScreen();
                                 },
                               ));
                             },

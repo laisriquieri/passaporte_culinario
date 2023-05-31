@@ -12,6 +12,31 @@ class Home extends StatelessWidget {
     'Card 6',
   ];
 
+  Widget _buildCircleImage(String imagePath) {
+    return Container(
+      width: 100,
+      height: 100,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: ClipOval(
+        child: Image.asset(
+          imagePath,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +73,7 @@ class Home extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Opções de Filtro',
                                     style: TextStyle(
                                       fontSize: 20,
@@ -59,7 +84,7 @@ class Home extends StatelessWidget {
                                     controlAffinity:
                                         ListTileControlAffinity.leading,
                                     checkColor: const Color(0xffA23045),
-                                    title: Text('Carnes'),
+                                    title: const Text('Carnes'),
                                     value: false,
                                     onChanged: (bool? value) {
                                       // Ação ao selecionar/desmarcar "Carnes"
@@ -69,7 +94,7 @@ class Home extends StatelessWidget {
                                     controlAffinity:
                                         ListTileControlAffinity.leading,
                                     checkColor: const Color(0xffA23045),
-                                    title: Text('Vegetariano'),
+                                    title: const Text('Vegetariano'),
                                     value: false,
                                     onChanged: (bool? value) {
                                       // Ação ao selecionar/desmarcar "Vegetariano"
@@ -79,7 +104,7 @@ class Home extends StatelessWidget {
                                     controlAffinity:
                                         ListTileControlAffinity.leading,
                                     checkColor: const Color(0xffA23045),
-                                    title: Text('Vegano'),
+                                    title: const Text('Vegano'),
                                     value: false,
                                     onChanged: (bool? value) {
                                       // Ação ao selecionar/desmarcar "Vegetariano"
@@ -105,7 +130,7 @@ class Home extends StatelessWidget {
                           hintText: 'Pesquisar',
                           border: InputBorder.none,
                           suffixIcon: IconButton(
-                            icon: Icon(Icons.search),
+                            icon: const Icon(Icons.search),
                             color: const Color(0xffA23045),
                             onPressed: () {
                               // Ação de pesquisa
@@ -134,7 +159,7 @@ class Home extends StatelessWidget {
                     'África',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xffA23045),
+                      color: Color(0xffA23045),
                     ),
                   ),
                 ),
@@ -146,17 +171,32 @@ class Home extends StatelessWidget {
                         (BuildContext context, int index, int realIndex) {
                       return Padding(
                         padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Card(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Container(
-                            width: 150,
-                            child: Center(
-                              child: Text(cardData[index]),
+                        child: Stack(
+                          children: [
+                            Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: SizedBox(
+                                width: 150,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 160,
+                                      right: 10,
+                                      left: 45,
+                                      bottom: 10),
+                                  child: Text(cardData[index]),
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              top: 10,
+                              right: 21,
+                              child: _buildCircleImage(
+                                  'assets/bandeira-brasil.png'),
+                            ),
+                          ],
                         ),
                       );
                     },
@@ -181,7 +221,7 @@ class Home extends StatelessWidget {
                     'América',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xffA23045),
+                      color: Color(0xffA23045),
                     ),
                   ),
                 ),
@@ -193,17 +233,32 @@ class Home extends StatelessWidget {
                         (BuildContext context, int index, int realIndex) {
                       return Padding(
                         padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Card(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Container(
-                            width: 150,
-                            child: Center(
-                              child: Text(cardData[index]),
+                        child: Stack(
+                          children: [
+                            Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Container(
+                                width: 150,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 160,
+                                      right: 10,
+                                      left: 45,
+                                      bottom: 10),
+                                  child: Text(cardData[index]),
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              top: 10,
+                              right: 21,
+                              child: _buildCircleImage(
+                                  'assets/bandeira-brasil.png'),
+                            ),
+                          ],
                         ),
                       );
                     },
@@ -228,7 +283,7 @@ class Home extends StatelessWidget {
                     'Antártica',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xffA23045),
+                      color: Color(0xffA23045),
                     ),
                   ),
                 ),
@@ -240,17 +295,32 @@ class Home extends StatelessWidget {
                         (BuildContext context, int index, int realIndex) {
                       return Padding(
                         padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Card(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Container(
-                            width: 150,
-                            child: Center(
-                              child: Text(cardData[index]),
+                        child: Stack(
+                          children: [
+                            Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Container(
+                                width: 150,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 160,
+                                      right: 10,
+                                      left: 45,
+                                      bottom: 10),
+                                  child: Text(cardData[index]),
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              top: 10,
+                              right: 21,
+                              child: _buildCircleImage(
+                                  'assets/bandeira-brasil.png'),
+                            ),
+                          ],
                         ),
                       );
                     },
@@ -275,7 +345,7 @@ class Home extends StatelessWidget {
                     'Ásia',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xffA23045),
+                      color: Color(0xffA23045),
                     ),
                   ),
                 ),
@@ -287,17 +357,32 @@ class Home extends StatelessWidget {
                         (BuildContext context, int index, int realIndex) {
                       return Padding(
                         padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Card(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Container(
-                            width: 150,
-                            child: Center(
-                              child: Text(cardData[index]),
+                        child: Stack(
+                          children: [
+                            Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Container(
+                                width: 150,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 160,
+                                      right: 10,
+                                      left: 45,
+                                      bottom: 10),
+                                  child: Text(cardData[index]),
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              top: 10,
+                              right: 21,
+                              child: _buildCircleImage(
+                                  'assets/bandeira-brasil.png'),
+                            ),
+                          ],
                         ),
                       );
                     },
@@ -322,7 +407,7 @@ class Home extends StatelessWidget {
                     'Europa',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xffA23045),
+                      color: Color(0xffA23045),
                     ),
                   ),
                 ),
@@ -334,17 +419,32 @@ class Home extends StatelessWidget {
                         (BuildContext context, int index, int realIndex) {
                       return Padding(
                         padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Card(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Container(
-                            width: 150,
-                            child: Center(
-                              child: Text(cardData[index]),
+                        child: Stack(
+                          children: [
+                            Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Container(
+                                width: 150,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 160,
+                                      right: 10,
+                                      left: 45,
+                                      bottom: 10),
+                                  child: Text(cardData[index]),
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              top: 10,
+                              right: 21,
+                              child: _buildCircleImage(
+                                  'assets/bandeira-brasil.png'),
+                            ),
+                          ],
                         ),
                       );
                     },
@@ -369,7 +469,7 @@ class Home extends StatelessWidget {
                     'Oceania',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xffA23045),
+                      color: Color(0xffA23045),
                     ),
                   ),
                 ),
@@ -381,17 +481,32 @@ class Home extends StatelessWidget {
                         (BuildContext context, int index, int realIndex) {
                       return Padding(
                         padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Card(
-                          elevation: 4,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Container(
-                            width: 150,
-                            child: Center(
-                              child: Text(cardData[index]),
+                        child: Stack(
+                          children: [
+                            Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Container(
+                                width: 150,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 160,
+                                      right: 10,
+                                      left: 45,
+                                      bottom: 10),
+                                  child: Text(cardData[index]),
+                                ),
+                              ),
                             ),
-                          ),
+                            Positioned(
+                              top: 10,
+                              right: 21,
+                              child: _buildCircleImage(
+                                  'assets/bandeira-brasil.png'),
+                            ),
+                          ],
                         ),
                       );
                     },
