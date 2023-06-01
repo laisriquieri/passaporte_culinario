@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:passaporte_culinario/src/pages/pagina_receita.dart';
 
 class Home extends StatelessWidget {
   final List<String> cardData = [
@@ -169,34 +170,44 @@ class Home extends StatelessWidget {
                     itemCount: cardData.length,
                     itemBuilder:
                         (BuildContext context, int index, int realIndex) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Stack(
-                          children: [
-                            Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: SizedBox(
-                                width: 150,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 160,
-                                      right: 10,
-                                      left: 45,
-                                      bottom: 10),
-                                  child: Text(cardData[index]),
+                      return GestureDetector(
+                        onTap: () {
+                          // Navegar para a nova tela quando o card for clicado
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PagReceita()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 15),
+                          child: Stack(
+                            children: [
+                              Card(
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: SizedBox(
+                                  width: 150,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 160,
+                                        right: 10,
+                                        left: 45,
+                                        bottom: 10),
+                                    child: Text(cardData[index]),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: 10,
-                              right: 21,
-                              child: _buildCircleImage(
-                                  'assets/bandeira-brasil.png'),
-                            ),
-                          ],
+                              Positioned(
+                                top: 10,
+                                right: 21,
+                                child: _buildCircleImage(
+                                    'assets/bandeira-brasil.png'),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -231,34 +242,44 @@ class Home extends StatelessWidget {
                     itemCount: cardData.length,
                     itemBuilder:
                         (BuildContext context, int index, int realIndex) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Stack(
-                          children: [
-                            Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Container(
-                                width: 150,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 160,
-                                      right: 10,
-                                      left: 45,
-                                      bottom: 10),
-                                  child: Text(cardData[index]),
+                      return GestureDetector(
+                        onTap: () {
+                          // Navegar para a nova tela quando o card for clicado
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PagReceita()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 15),
+                          child: Stack(
+                            children: [
+                              Card(
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: SizedBox(
+                                  width: 150,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 160,
+                                        right: 10,
+                                        left: 45,
+                                        bottom: 10),
+                                    child: Text(cardData[index]),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: 10,
-                              right: 21,
-                              child: _buildCircleImage(
-                                  'assets/bandeira-brasil.png'),
-                            ),
-                          ],
+                              Positioned(
+                                top: 10,
+                                right: 21,
+                                child: _buildCircleImage(
+                                    'assets/bandeira-brasil.png'),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -293,34 +314,44 @@ class Home extends StatelessWidget {
                     itemCount: cardData.length,
                     itemBuilder:
                         (BuildContext context, int index, int realIndex) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Stack(
-                          children: [
-                            Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Container(
-                                width: 150,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 160,
-                                      right: 10,
-                                      left: 45,
-                                      bottom: 10),
-                                  child: Text(cardData[index]),
+                      return GestureDetector(
+                        onTap: () {
+                          // Navegar para a nova tela quando o card for clicado
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PagReceita()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 15),
+                          child: Stack(
+                            children: [
+                              Card(
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: SizedBox(
+                                  width: 150,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 160,
+                                        right: 10,
+                                        left: 45,
+                                        bottom: 10),
+                                    child: Text(cardData[index]),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: 10,
-                              right: 21,
-                              child: _buildCircleImage(
-                                  'assets/bandeira-brasil.png'),
-                            ),
-                          ],
+                              Positioned(
+                                top: 10,
+                                right: 21,
+                                child: _buildCircleImage(
+                                    'assets/bandeira-brasil.png'),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -355,34 +386,44 @@ class Home extends StatelessWidget {
                     itemCount: cardData.length,
                     itemBuilder:
                         (BuildContext context, int index, int realIndex) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Stack(
-                          children: [
-                            Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Container(
-                                width: 150,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 160,
-                                      right: 10,
-                                      left: 45,
-                                      bottom: 10),
-                                  child: Text(cardData[index]),
+                      return GestureDetector(
+                        onTap: () {
+                          // Navegar para a nova tela quando o card for clicado
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PagReceita()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 15),
+                          child: Stack(
+                            children: [
+                              Card(
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: SizedBox(
+                                  width: 150,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 160,
+                                        right: 10,
+                                        left: 45,
+                                        bottom: 10),
+                                    child: Text(cardData[index]),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: 10,
-                              right: 21,
-                              child: _buildCircleImage(
-                                  'assets/bandeira-brasil.png'),
-                            ),
-                          ],
+                              Positioned(
+                                top: 10,
+                                right: 21,
+                                child: _buildCircleImage(
+                                    'assets/bandeira-brasil.png'),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -417,34 +458,44 @@ class Home extends StatelessWidget {
                     itemCount: cardData.length,
                     itemBuilder:
                         (BuildContext context, int index, int realIndex) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Stack(
-                          children: [
-                            Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Container(
-                                width: 150,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 160,
-                                      right: 10,
-                                      left: 45,
-                                      bottom: 10),
-                                  child: Text(cardData[index]),
+                      return GestureDetector(
+                        onTap: () {
+                          // Navegar para a nova tela quando o card for clicado
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PagReceita()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 15),
+                          child: Stack(
+                            children: [
+                              Card(
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: SizedBox(
+                                  width: 150,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 160,
+                                        right: 10,
+                                        left: 45,
+                                        bottom: 10),
+                                    child: Text(cardData[index]),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: 10,
-                              right: 21,
-                              child: _buildCircleImage(
-                                  'assets/bandeira-brasil.png'),
-                            ),
-                          ],
+                              Positioned(
+                                top: 10,
+                                right: 21,
+                                child: _buildCircleImage(
+                                    'assets/bandeira-brasil.png'),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
@@ -479,34 +530,44 @@ class Home extends StatelessWidget {
                     itemCount: cardData.length,
                     itemBuilder:
                         (BuildContext context, int index, int realIndex) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 0, left: 15),
-                        child: Stack(
-                          children: [
-                            Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Container(
-                                width: 150,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 160,
-                                      right: 10,
-                                      left: 45,
-                                      bottom: 10),
-                                  child: Text(cardData[index]),
+                      return GestureDetector(
+                        onTap: () {
+                          // Navegar para a nova tela quando o card for clicado
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PagReceita()),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, left: 15),
+                          child: Stack(
+                            children: [
+                              Card(
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: SizedBox(
+                                  width: 150,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 160,
+                                        right: 10,
+                                        left: 45,
+                                        bottom: 10),
+                                    child: Text(cardData[index]),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Positioned(
-                              top: 10,
-                              right: 21,
-                              child: _buildCircleImage(
-                                  'assets/bandeira-brasil.png'),
-                            ),
-                          ],
+                              Positioned(
+                                top: 10,
+                                right: 21,
+                                child: _buildCircleImage(
+                                    'assets/bandeira-brasil.png'),
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
