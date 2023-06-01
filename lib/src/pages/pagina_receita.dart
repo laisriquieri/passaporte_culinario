@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PagReceita extends StatefulWidget {
   const PagReceita({Key? key}) : super(key: key);
@@ -21,6 +22,11 @@ class _PagReceitaState extends State<PagReceita> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFededed),
+      appBar: AppBar(
+        backgroundColor: Color(0xffededed),
+        shadowColor: Colors.transparent,
+        title: Text('Pratos Típicos em ${cardSelecionado ?? ""}'),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,8 +42,10 @@ class _PagReceitaState extends State<PagReceita> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
               itemCount: receitas.length,
+              separatorBuilder: (BuildContext context, int index) =>
+                  SizedBox(height: 8),
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
@@ -56,7 +64,7 @@ class _PagReceitaState extends State<PagReceita> {
                       child: Container(
                         height: 100,
                         padding: EdgeInsets.only(
-                          top: 20,
+                          top: 8,
                         ),
                         child: ListTile(
                           leading: CircleAvatar(
@@ -64,7 +72,42 @@ class _PagReceitaState extends State<PagReceita> {
                             backgroundImage:
                                 AssetImage('assets/bandeira-brasil.png'),
                           ),
-                          title: Text(receitas[index]),
+                          title: Container(
+                            padding: EdgeInsets.only(bottom: 20),
+                            child: Text(receitas[index]),
+                          ),
+                          subtitle: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Stack(
+                                alignment: Alignment.topCenter,
+                                children: [
+                                  Icon(Icons.timelapse_outlined,
+                                      color: const Color(0xffA23045)),
+                                  Container(
+                                    width: 30,
+                                    child: Text(
+                                      '30 min',
+                                      style: TextStyle(fontSize: 8),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Icon(Icons.attach_money,
+                                  color: const Color(0xffA23045)),
+                              SvgPicture.asset(
+                                'assets/brasil.svg',
+                                width: 20,
+                                height: 20,
+                              ), // Ícone 2
+                              SvgPicture.asset(
+                                'assets/food-steak.svg',
+                                color: const Color(0xffA23045),
+                              ), // Ícone 4
+                              Icon(Icons.favorite_border,
+                                  color: const Color(0xffA23045)), // Ícone 5
+                            ],
+                          ),
                           // Adicione mais detalhes da receita conforme necessário
                         ),
                       ),
@@ -75,11 +118,6 @@ class _PagReceitaState extends State<PagReceita> {
             ),
           ),
         ],
-      ),
-      appBar: AppBar(
-        backgroundColor: Color(0xffededed),
-        shadowColor: Colors.transparent,
-        title: Text('Pratos Típicos em ${cardSelecionado ?? ""}'),
       ),
     );
   }
