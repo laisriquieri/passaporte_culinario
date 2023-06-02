@@ -21,9 +21,9 @@ class _PagReceitaState extends State<PagReceita> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFededed),
+      backgroundColor: const Color(0xFFededed),
       appBar: AppBar(
-        backgroundColor: Color(0xffededed),
+        backgroundColor: const Color(0xffededed),
         shadowColor: Colors.transparent,
         title: Text('Pratos Típicos em ${cardSelecionado ?? ""}'),
       ),
