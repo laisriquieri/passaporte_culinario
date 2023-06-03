@@ -45,7 +45,7 @@ class _PagReceitaState extends State<PagReceita> {
             child: ListView.separated(
               itemCount: receitas.length,
               separatorBuilder: (BuildContext context, int index) =>
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
