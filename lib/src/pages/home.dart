@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:passaporte_culinario/src/pages/pagina_receita.dart';
+import 'package:passaporte_culinario/src/pages/lista_receitas.dart';
 
 class Home extends StatelessWidget {
   final List<String> cardData = [
