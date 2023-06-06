@@ -158,8 +158,6 @@ class _ReceitaState extends State<Receita> {
                                   'assets/food-steak.svg',
                                   color: const Color(0xffA23045),
                                 ),
-                                Icon(Icons.favorite_border,
-                                    color: const Color(0xffA23045)),
                               ],
                             ),
                             SizedBox(height: 16.0),
