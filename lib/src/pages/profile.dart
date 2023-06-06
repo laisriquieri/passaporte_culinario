@@ -33,13 +33,16 @@ class _ProfileState extends State<Profile> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage('assets/bandeira-brasil.png'),
-                  radius: 50,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage('assets/bandeira-brasil.png'),
+                    radius: 40,
+                  ),
+                  title: Text('Nome do Usuário'),
+                  subtitle: Text('emailusuario@exemplo.com'),
                 ),
-                title: Text('Nome do Usuário'),
-                subtitle: Text('emaildo.usuario@exemplo.com'),
               ),
             ),
           ),
