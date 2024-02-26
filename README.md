@@ -1,7 +1,7 @@
 # Passaporte Culinário
 
 
-Explore o mundo dos sabores com o Passaporte Culinário - seu guia gastronômico global! Descubra uma vasta coleção de receitas autênticas e deliciosas de diversos países, tudo na palma da sua mão. De pratos tradicionais a iguarias contemporâneas, embarque nesta jornada culinária sem sair de casa.
+Explore o mundo dos sabores com o Passaporte Culinário - o seu guia gastronômico global! Descubra uma vasta coleção de receitas autênticas e deliciosas de diversos países, tudo na palma da sua mão. De pratos tradicionais a iguarias contemporâneas, embarque nesta jornada culinária sem sair de casa.
 
 Com o Passaporte Culinário, você terá acesso a um universo de culinária internacional, oferecendo receitas passo a passo de vários países. De pratos reconfortantes a sobremesas tentadoras, explore a diversidade de culturas gastronômicas e transforme sua cozinha em um verdadeiro palco de sabores do mundo.
 
