@@ -1,5 +1,3 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/pages/auth/sign_in_page.dart';
 import 'package:passaporte_culinario/src/pages/base_screen.dart';
@@ -8,10 +6,10 @@ class LetsGo extends StatefulWidget {
   const LetsGo({Key? key}) : super(key: key);
 
   @override
-  _LetsGoState createState() => _LetsGoState();
+  LetsGoState createState() => LetsGoState();
 }
 
-class _LetsGoState extends State<LetsGo> {
+class LetsGoState extends State<LetsGo> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

@@ -49,12 +49,12 @@ class _ReceitaState extends State<Receita> {
           children: [
             Container(
               height: 65.0,
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -82,8 +82,9 @@ class _ReceitaState extends State<Receita> {
                           builder: (BuildContext context) {
                             return Container(
                               width: MediaQuery.of(context).size.width,
-                              margin: EdgeInsets.symmetric(horizontal: 5.0),
-                              decoration: BoxDecoration(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: const BoxDecoration(
                                 color: Colors.grey,
                               ),
                               child: Image.network(
@@ -95,7 +96,7 @@ class _ReceitaState extends State<Receita> {
                         );
                       }).toList(),
                     ),
-                    SizedBox(height: 8.0),
+                    const SizedBox(height: 8.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: images.asMap().entries.map((entry) {
@@ -103,7 +104,7 @@ class _ReceitaState extends State<Receita> {
                         return Container(
                           width: 8.0,
                           height: 8.0,
-                          margin: EdgeInsets.symmetric(
+                          margin: const EdgeInsets.symmetric(
                               vertical: 10.0, horizontal: 2.0),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -116,11 +117,11 @@ class _ReceitaState extends State<Receita> {
                     ),
                     SingleChildScrollView(
                       child: Padding(
-                        padding: EdgeInsets.all(16.0),
+                        padding: const EdgeInsets.all(16.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Center(
+                            const Center(
                               child: Text(
                                 'Título da Receita',
                                 style: TextStyle(
@@ -129,26 +130,26 @@ class _ReceitaState extends State<Receita> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 16.0),
+                            const SizedBox(height: 16.0),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Stack(
                                   alignment: Alignment.topCenter,
                                   children: [
-                                    Icon(Icons.timelapse_outlined,
-                                        color: const Color(0xffA23045)),
+                                    const Icon(Icons.timelapse_outlined,
+                                        color: Color(0xffA23045)),
                                     Container(
                                       width: 30,
-                                      child: Text(
+                                      child: const Text(
                                         '30 min',
                                         style: TextStyle(fontSize: 8),
                                       ),
                                     ),
                                   ],
                                 ),
-                                Icon(Icons.attach_money,
-                                    color: const Color(0xffA23045)),
+                                const Icon(Icons.attach_money,
+                                    color: Color(0xffA23045)),
                                 SvgPicture.asset(
                                   'assets/brasil.svg',
                                   width: 20,
@@ -160,30 +161,30 @@ class _ReceitaState extends State<Receita> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 16.0),
-                            Text(
+                            const SizedBox(height: 16.0),
+                            const Text(
                               'Ingredientes:',
                               style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 8.0),
+                            const SizedBox(height: 8.0),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: ingredients.map((ingredient) {
                                 return Text('- $ingredient');
                               }).toList(),
                             ),
-                            SizedBox(height: 16.0),
-                            Text(
+                            const SizedBox(height: 16.0),
+                            const Text(
                               'Modo de Preparo:',
                               style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 8.0),
+                            const SizedBox(height: 8.0),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children:
@@ -208,8 +209,10 @@ class _ReceitaState extends State<Receita> {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class FavoriteIcon extends StatefulWidget {
   @override
+  // ignore: library_private_types_in_public_api
   _FavoriteIconState createState() => _FavoriteIconState();
 }
 

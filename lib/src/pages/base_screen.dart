@@ -42,7 +42,7 @@ class _BaseScreenState extends State<BaseScreen> {
         },
         type: BottomNavigationBarType.fixed,
         backgroundColor: const Color(0xFFededed),
-        selectedItemColor: Color(0xffA23045),
+        selectedItemColor: const Color(0xffA23045),
         unselectedItemColor: Colors.black45,
         items: const [
           BottomNavigationBarItem(

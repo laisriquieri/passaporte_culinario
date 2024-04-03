@@ -14,8 +14,8 @@ class _ProfileState extends State<Profile> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 56, bottom: 100, left: 140),
+          const Padding(
+            padding: EdgeInsets.only(top: 57, bottom: 100, left: 140),
             child: Text(
               'Meu perfil',
               style: TextStyle(
@@ -27,14 +27,14 @@ class _ProfileState extends State<Profile> {
           Container(
             width: 340,
             height: 200,
-            margin: EdgeInsets.only(left: 35, bottom: 15),
+            margin: const EdgeInsets.only(left: 35, bottom: 15),
             child: Card(
               elevation: 4,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(top: 50),
+              child: const Padding(
+                padding: EdgeInsets.only(top: 50),
                 child: ListTile(
                   leading: CircleAvatar(
                     backgroundImage: AssetImage('assets/bandeira-brasil.png'),
@@ -54,7 +54,7 @@ class _ProfileState extends State<Profile> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: ListTile(
-                title: Text('Informações Pessoais'),
+                title: const Text('Informações Pessoais'),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -72,7 +72,7 @@ class _ProfileState extends State<Profile> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: ListTile(
-                title: Text('Alterar Senha'),
+                title: const Text('Alterar Senha'),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -91,7 +91,7 @@ class _ProfileState extends State<Profile> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: ListTile(
-                title: Text('Selecionar País'),
+                title: const Text('Selecionar País'),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -110,7 +110,7 @@ class _ProfileState extends State<Profile> {
                 borderRadius: BorderRadius.circular(15),
               ),
               child: ListTile(
-                title: Text('Ajuda'),
+                title: const Text('Ajuda'),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -131,9 +131,9 @@ class PersonalInfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Informações Pessoais'),
+        title: const Text('Informações Pessoais'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Página de Informações Pessoais'),
       ),
     );
@@ -145,9 +145,9 @@ class ChangePasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Alterar Senha'),
+        title: const Text('Alterar Senha'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Página de Alteração de Senha'),
       ),
     );
@@ -159,9 +159,9 @@ class SelectCountryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Selecionar País'),
+        title: const Text('Selecionar País'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Página de Seleção de País'),
       ),
     );
@@ -173,9 +173,9 @@ class HelpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ajuda'),
+        title: const Text('Ajuda'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Página de Ajuda'),
       ),
     );

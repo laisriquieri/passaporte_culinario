@@ -41,11 +41,11 @@ class _PagReceitaState extends State<PagReceita> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(top: 10, bottom: 20),
+            padding: const EdgeInsets.only(top: 10, bottom: 20),
             child: Center(
               child: Text(
                 'Encontramos ${receitas.length} receitas',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                 ),
               ),
@@ -58,7 +58,8 @@ class _PagReceitaState extends State<PagReceita> {
                   const SizedBox(height: 8),
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
                   child: InkWell(
                     onTap: () {
                       setState(() {
@@ -68,7 +69,7 @@ class _PagReceitaState extends State<PagReceita> {
                     },
                     child: Container(
                       height: 100,
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         top: 8,
                       ),
                       decoration: BoxDecoration(
@@ -83,13 +84,13 @@ class _PagReceitaState extends State<PagReceita> {
                         ),
                       ),
                       child: ListTile(
-                        leading: CircleAvatar(
+                        leading: const CircleAvatar(
                           radius: 30, // Ajuste o tamanho do círculo aqui
                           backgroundImage:
                               AssetImage('assets/bandeira-brasil.png'),
                         ),
                         title: Container(
-                          padding: EdgeInsets.only(bottom: 20),
+                          padding: const EdgeInsets.only(bottom: 20),
                           child: Text(receitas[index]),
                         ),
                         subtitle: Row(
@@ -98,19 +99,19 @@ class _PagReceitaState extends State<PagReceita> {
                             Stack(
                               alignment: Alignment.topCenter,
                               children: [
-                                Icon(Icons.timelapse_outlined,
-                                    color: const Color(0xffA23045)),
+                                const Icon(Icons.timelapse_outlined,
+                                    color: Color(0xffA23045)),
                                 Container(
                                   width: 30,
-                                  child: Text(
+                                  child: const Text(
                                     '30 min',
                                     style: TextStyle(fontSize: 8),
                                   ),
                                 ),
                               ],
                             ),
-                            Icon(Icons.attach_money,
-                                color: const Color(0xffA23045)),
+                            const Icon(Icons.attach_money,
+                                color: Color(0xffA23045)),
                             SvgPicture.asset(
                               'assets/brasil.svg',
                               width: 20,
@@ -120,8 +121,8 @@ class _PagReceitaState extends State<PagReceita> {
                               'assets/food-steak.svg',
                               color: const Color(0xffA23045),
                             ), // Ícone 4
-                            Icon(Icons.favorite_border,
-                                color: const Color(0xffA23045)), // Ícone 5
+                            const Icon(Icons.favorite_border,
+                                color: Color(0xffA23045)), // Ícone 5
                           ],
                         ),
                         // Adicione mais detalhes da receita conforme necessário
