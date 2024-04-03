@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFededed),
       body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -54,7 +54,10 @@ class Home extends StatelessWidget {
                   IconButton(
                     icon: SvgPicture.asset(
                       'assets/funil.svg',
-                      color: const Color(0xffA23045),
+                      colorFilter: ColorFilter.mode(
+                        const Color(0xffA23045),
+                        BlendMode.srcIn,
+                      ),
                     ),
                     onPressed: () {
                       // Abre a tela modal ao clicar no ícone do funil
@@ -152,10 +155,12 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
-            Column(children: [
-              ContinenteListWidget(title: 'América', cardData: cardData),
-              ContinenteListWidget(title: 'América', cardData: cardData),
-            ]),
+            Column(
+              children: [
+                ContinenteListWidget(title: 'América', cardData: cardData),
+                ContinenteListWidget(title: 'América', cardData: cardData),
+              ],
+            ),
           ],
         ),
       ),

@@ -119,7 +119,10 @@ class _PagReceitaState extends State<PagReceita> {
                             ), // Ícone 2
                             SvgPicture.asset(
                               'assets/food-steak.svg',
-                              color: const Color(0xffA23045),
+                              colorFilter: const ColorFilter.mode(
+                                Color(0xffA23045),
+                                BlendMode.srcIn,
+                              ),
                             ), // Ícone 4
                             const Icon(Icons.favorite_border,
                                 color: Color(0xffA23045)), // Ícone 5

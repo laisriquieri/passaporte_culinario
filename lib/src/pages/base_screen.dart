@@ -1,10 +1,11 @@
-import 'package:passaporte_culinario/src/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:passaporte_culinario/src/pages/home.dart';
 import 'package:passaporte_culinario/src/pages/favoritos.dart';
 import 'package:passaporte_culinario/src/pages/profile.dart';
 
 class BaseScreen extends StatefulWidget {
-  BaseScreen({Key? key}) : super(key: key);
+  // ignore: use_super_parameters
+  const BaseScreen({Key? key}) : super(key: key);
 
   @override
   State<BaseScreen> createState() => _BaseScreenState();
@@ -19,12 +20,11 @@ class _BaseScreenState extends State<BaseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
           Home(),
-          Favoritos(),
-          Profile(),
+          const Favoritos(),
+          const Profile(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -32,12 +32,7 @@ class _BaseScreenState extends State<BaseScreen> {
         onTap: (index) {
           setState(() {
             currentIndex = index;
-            //pageController.jumpToPage(index);
-            pageController.animateToPage(
-              index,
-              duration: const Duration(milliseconds: 500),
-              curve: Curves.ease,
-            );
+            pageController.jumpToPage(index);
           });
         },
         type: BottomNavigationBarType.fixed,

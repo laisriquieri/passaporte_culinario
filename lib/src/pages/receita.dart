@@ -157,7 +157,10 @@ class _ReceitaState extends State<Receita> {
                                 ),
                                 SvgPicture.asset(
                                   'assets/food-steak.svg',
-                                  color: const Color(0xffA23045),
+                                  colorFilter: const ColorFilter.mode(
+                                    Color(0xffA23045),
+                                    BlendMode.srcIn,
+                                  ),
                                 ),
                               ],
                             ),
