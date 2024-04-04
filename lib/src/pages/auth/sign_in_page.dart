@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/config/custom_colors.dart';
 import 'package:passaporte_culinario/src/config/custom_text_field.dart';
+import 'package:passaporte_culinario/src/pages/base_screen.dart';
 import 'package:passaporte_culinario/src/pages/home.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -138,7 +139,7 @@ class SignInScreen extends StatelessWidget {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
                                     builder: (c) {
-                                      return Home();
+                                      return BaseScreen();
                                     },
                                   ),
                                 );

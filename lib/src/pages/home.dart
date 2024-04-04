@@ -12,31 +12,6 @@ class Home extends StatelessWidget {
     'Card 6',
   ];
 
-  Widget _buildCircleImage(String imagePath) {
-    return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
-      child: ClipOval(
-        child: Image.asset(
-          imagePath,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,8 +29,8 @@ class Home extends StatelessWidget {
                   IconButton(
                     icon: SvgPicture.asset(
                       'assets/funil.svg',
-                      colorFilter: ColorFilter.mode(
-                        const Color(0xffA23045),
+                      colorFilter: const ColorFilter.mode(
+                        Color(0xffA23045),
                         BlendMode.srcIn,
                       ),
                     ),
