@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Receita extends StatefulWidget {
   final String? cardSelecionado;
 
-  Receita(this.cardSelecionado, {Key? key}) : super(key: key);
+  const Receita(this.cardSelecionado, {Key? key}) : super(key: key);
 
   @override
   _ReceitaState createState() => _ReceitaState();
@@ -139,6 +139,7 @@ class _ReceitaState extends State<Receita> {
                                   children: [
                                     const Icon(Icons.timelapse_outlined,
                                         color: Color(0xffA23045)),
+                                    // ignore: sized_box_for_whitespace
                                     Container(
                                       width: 30,
                                       child: const Text(

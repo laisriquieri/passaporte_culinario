@@ -25,9 +25,9 @@ class _ProfileState extends State<Profile> {
             ),
           ),
           Container(
-            width: 340,
+            width: 430,
             height: 200,
-            margin: const EdgeInsets.only(left: 35, bottom: 15),
+            margin: const EdgeInsets.only(left: 35, right: 35, bottom: 15),
             child: Card(
               elevation: 4,
               shape: RoundedRectangleBorder(

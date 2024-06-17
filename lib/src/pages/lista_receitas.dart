@@ -96,14 +96,14 @@ class _PagReceitaState extends State<PagReceita> {
                         subtitle: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Stack(
+                            const Stack(
                               alignment: Alignment.topCenter,
                               children: [
-                                const Icon(Icons.timelapse_outlined,
+                                Icon(Icons.timelapse_outlined,
                                     color: Color(0xffA23045)),
-                                Container(
+                                SizedBox(
                                   width: 30,
-                                  child: const Text(
+                                  child: Text(
                                     '30 min',
                                     style: TextStyle(fontSize: 8),
                                   ),
