@@ -22,7 +22,7 @@ class _BaseScreenState extends State<BaseScreen> {
       body: PageView(
         controller: pageController,
         children: [
-          Home(),
+          HomeScreen(),
           const Favoritos(),
           const Profile(),
         ],

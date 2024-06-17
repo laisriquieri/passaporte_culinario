@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:passaporte_culinario/src/models/country.dart';
 
 import '../pages/lista_receitas.dart';
 
 class ContinenteListWidget extends StatelessWidget {
   final String title;
-  final List<String> cardData;
+  final List<Country> cardData;
 
   const ContinenteListWidget({
     Key? key,
@@ -57,7 +58,7 @@ class ContinenteListWidget extends StatelessWidget {
                               left: 45,
                               bottom: 10,
                             ),
-                            child: Text(cardData[index]),
+                            child: Text(cardData.elementAt(index).name),
                           ),
                         ),
                       ),
