@@ -14,6 +14,7 @@ class _PagReceitaState extends State<PagReceita> {
     'Brigadeiro',
     'Coxinha',
     'Feijoada',
+    'Pão de queijo',
     // Adicione quantas receitas você precisar
   ];
 
