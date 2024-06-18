@@ -32,36 +32,106 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Explore Continentes',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Pesquisar...',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+            padding: const EdgeInsets.all(25),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: '     Pesquisar',
+                  border: InputBorder.none,
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.search),
+                    color: const Color(0xffA23045),
+                    onPressed: () {
+                      // Ação de pesquisa
+                    },
+                  ),
                 ),
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment:
+                  MainAxisAlignment.start, // Change to MainAxisAlignment.start
               children: [
                 IconButton(
-                  icon: Icon(Icons.filter_list),
-                  onPressed: () {
-                    // Adicione a lógica do filtro aqui
-                  },
-                ),
+                    icon: const Icon(Icons.filter_list),
+                    color: const Color(0xffA23045),
+                    onPressed: () {
+                      showModalBottomSheet(
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                top: 0, left: 15, right: 15, bottom: 20),
+                            child: Card(
+                              elevation: 4,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    'Opções de Filtro',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  CheckboxListTile(
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    checkColor: const Color(0xffA23045),
+                                    title: const Text('Carnes'),
+                                    value: false,
+                                    onChanged: (bool? value) {
+                                      // Ação ao selecionar/desmarcar "Carnes"
+                                    },
+                                  ),
+                                  CheckboxListTile(
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    checkColor: const Color(0xffA23045),
+                                    title: const Text('Vegetariano'),
+                                    value: false,
+                                    onChanged: (bool? value) {
+                                      // Ação ao selecionar/desmarcar "Vegetariano"
+                                    },
+                                  ),
+                                  CheckboxListTile(
+                                    controlAffinity:
+                                        ListTileControlAffinity.leading,
+                                    checkColor: const Color(0xffA23045),
+                                    title: const Text('Vegano'),
+                                    value: false,
+                                    onChanged: (bool? value) {
+                                      // Ação ao selecionar/desmarcar "Vegetariano"
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    }),
               ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 25),
+            child: Text(
+              'Viaje pelo mundo através da gastronomia',
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
           ),
           Expanded(
@@ -82,10 +152,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: continents?.length,
                     itemBuilder: (context, index) {
                       Continent continent = continents![index];
-                      var cardData = continent
-                          .countries; // Certifique-se de declarar cardData corretamente
-                      return ContinenteListWidget(
-                          title: continent.name, cardData: cardData);
+                      var cardData = continent.countries;
+                      return Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: ContinenteListWidget(
+                            title: continent.name, cardData: cardData),
+                      );
                     },
                   );
                 } else {

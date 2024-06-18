@@ -28,7 +28,7 @@ class ContinenteListWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 200, // Defina a altura desejada
+          // Defina a altura desejada
           child: CarouselSlider.builder(
             itemCount: cardData.length,
             itemBuilder: (BuildContext context, int index, int realIndex) {
@@ -55,7 +55,7 @@ class ContinenteListWidget extends StatelessWidget {
                             padding: const EdgeInsets.only(
                               top: 160,
                               right: 10,
-                              left: 45,
+                              left: 50,
                               bottom: 10,
                             ),
                             child: Text(cardData.elementAt(index).name),
@@ -64,7 +64,7 @@ class ContinenteListWidget extends StatelessWidget {
                       ),
                       Positioned(
                         top: 10,
-                        right: 21,
+                        right: 25,
                         child: _buildCircleImage('assets/bandeira-brasil.png'),
                       ),
                     ],

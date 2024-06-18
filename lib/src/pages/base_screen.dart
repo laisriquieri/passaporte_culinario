@@ -39,6 +39,7 @@ class _BaseScreenState extends State<BaseScreen> {
         backgroundColor: const Color(0xFFededed),
         selectedItemColor: const Color(0xffA23045),
         unselectedItemColor: Colors.black45,
+        selectedFontSize: 14,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
