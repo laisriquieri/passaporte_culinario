@@ -139,11 +139,11 @@ class _HomeScreenState extends State<HomeScreen> {
               future: _continentController.fetchContinents(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (snapshot.hasError) {
-                  return Center(
+                  return const Center(
                     child: Text('Erro ao carregar os continentes'),
                   );
                 } else if (snapshot.hasData) {

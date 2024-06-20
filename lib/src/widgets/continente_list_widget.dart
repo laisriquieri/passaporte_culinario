@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:passaporte_culinario/src/models/country.dart';
 
-import '../pages/lista_receitas.dart';
+import '../pages/recipe_list.dart';
 
 class ContinenteListWidget extends StatelessWidget {
   final String title;
@@ -37,7 +37,7 @@ class ContinenteListWidget extends StatelessWidget {
                   // Navegar para a nova tela quando o card for clicado
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PagReceita()),
+                    MaterialPageRoute(builder: (context) => RecipeListPage()),
                   );
                 },
                 child: Padding(
