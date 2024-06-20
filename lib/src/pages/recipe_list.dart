@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:passaporte_culinario/src/controllers/recipe_list.dart';
-import 'package:passaporte_culinario/src/models/recipe_list_iten.dart';
+import 'package:passaporte_culinario/src/models/recipe_list_item.dart';
 import 'receita.dart'; // Importando o arquivo receita.dart
 
 class RecipeListPage extends StatefulWidget {
@@ -16,6 +15,12 @@ class _RecipeListPageState extends State<RecipeListPage> {
 
   int? cardSelecionado;
 
+  List<Widget> buildCostIcons(int count) {
+    return List.generate(count, (index) {
+      return Icon(Icons.attach_money, color: Color(0xffA23045));
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -24,8 +29,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
 
   void _loadRecipes() async {
     try {
-      List<RecipeListItem> recipes =
-          await _recipeListController.fetchRecipeList();
+      await _recipeListController.fetchRecipeList();
       setState(() {
         // Atualize a lista de receitas
       });
@@ -88,21 +92,20 @@ class _RecipeListPageState extends State<RecipeListPage> {
                         child: ListView.builder(
                           itemCount: recipes?.length ?? 0,
                           itemBuilder: (BuildContext context, int index) {
+                            RecipeListItem recipe = recipes![index];
                             return Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 32, vertical: 8),
                               child: InkWell(
                                 onTap: () {
                                   setState(() {
-                                    cardSelecionado = recipes?[index].id;
+                                    cardSelecionado = recipe.id;
                                   });
                                   navigateToNovaPagina();
                                 },
                                 child: Container(
                                   height: 100,
-                                  padding: const EdgeInsets.only(
-                                    top: 8,
-                                  ),
+                                  padding: const EdgeInsets.only(top: 8),
                                   decoration: BoxDecoration(
                                     boxShadow: [
                                       BoxShadow(
@@ -113,15 +116,14 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                             0, 2), // changes position of shadow
                                       ),
                                     ],
-                                    color: cardSelecionado == recipes?[index].id
+                                    color: cardSelecionado == recipe.id
                                         ? Colors.transparent
                                         : Colors.white,
                                     borderRadius: BorderRadius.circular(30),
                                     border: Border.all(
-                                      color:
-                                          cardSelecionado == recipes?[index].id
-                                              ? Colors.black
-                                              : Colors.white,
+                                      color: cardSelecionado == recipe.id
+                                          ? Colors.black
+                                          : Colors.white,
                                     ),
                                   ),
                                   child: ListTile(
@@ -134,7 +136,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                     title: Container(
                                       padding:
                                           const EdgeInsets.only(bottom: 20),
-                                      child: Text(recipes?[index].title ?? ""),
+                                      child: Text(recipe.title),
                                     ),
                                     subtitle: Row(
                                       mainAxisAlignment:
@@ -151,31 +153,20 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                               width: 8,
                                             ),
                                             Text(
-                                              '${recipes?[index].timeToCook ?? 0} min',
+                                              '${recipe.timeToCook} min',
                                               style: TextStyle(fontSize: 12),
                                             ),
                                           ],
                                         ),
-                                        const Icon(Icons.attach_money,
-                                            color: Color(0xffA23045)),
-                                        // SvgPicture.asset(
-                                        //   'assets/${recipes?[index].flag}',
-                                        //   width: 20,
-                                        //   height: 20,
-                                        // ), // Ícone 2
-                                        // SvgPicture.asset(
-                                        //   'assets/${recipes?[index].foodPicture}',
-                                        //   colorFilter: const ColorFilter.mode(
-                                        //     Color(0xffA23045),
-                                        //     BlendMode.srcIn,
-                                        //   ),
-                                        // ), // Ícone 4
+                                        Row(
+                                          children: buildCostIcons(recipe.cost),
+                                        ),
                                         Icon(
-                                          recipes?[index].isFavorite ?? false
+                                          recipe.isFavorite
                                               ? Icons.favorite
                                               : Icons.favorite_border,
                                           color: Color(0xffA23045),
-                                        ), // Ícone 5
+                                        ),
                                       ],
                                     ),
                                     // Adicione mais detalhes da receita conforme necessário

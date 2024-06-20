@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:passaporte_culinario/src/models/recipe_list_iten.dart';
+import 'package:passaporte_culinario/src/models/recipe_list_item.dart';
 
 class RecipeListController {
   Future<List<RecipeListItem>> fetchRecipeList() async {

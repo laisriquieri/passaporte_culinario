@@ -3,8 +3,8 @@ class RecipeListItem {
   final String title;
   final int timeToCook;
   final int cost;
-  final String flag;
-  final String foodPicture;
+  final String flag; // URL da bandeira
+  final String foodPicture; // URL da imagem da comida
   final bool isFavorite;
 
   RecipeListItem({
