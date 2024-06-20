@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:passaporte_culinario/src/controllers/recipe_list.dart';
 import 'package:passaporte_culinario/src/models/recipe_list_iten.dart';
 import 'receita.dart'; // Importando o arquivo receita.dart

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/pages/recipe_list.dart';
-import 'package:passaporte_culinario/src/pages/splashcreen.dart';
+//import 'package:passaporte_culinario/src/pages/splashcreen.dart';
 
 void main() {
   runApp(const MyApp());
