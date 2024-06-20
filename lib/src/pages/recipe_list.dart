@@ -49,9 +49,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFededed),
       appBar: AppBar(
-        backgroundColor: const Color(0xffededed),
         shadowColor: Colors.transparent,
         title: Text('Pratos Típicos em ${cardSelecionado ?? ""}'),
       ),
@@ -106,6 +104,15 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                     top: 8,
                                   ),
                                   decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.2),
+                                        spreadRadius: 2,
+                                        blurRadius: 4,
+                                        offset: Offset(
+                                            0, 2), // changes position of shadow
+                                      ),
+                                    ],
                                     color: cardSelecionado == recipes?[index].id
                                         ? Colors.transparent
                                         : Colors.white,
