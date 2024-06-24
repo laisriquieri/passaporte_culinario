@@ -56,7 +56,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.transparent,
-        title: Text('Pratos Típicos em ${widget.country ?? ""}'),
+        title: Text('Pratos Típicos em ${widget.country}'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,17 +163,16 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                                 buildCostIcons(recipe.cost),
                                           ),
                                         ),
-                                        if (recipe.flag !=
-                                            null) // Verifica se há um ícone correspondente
-                                          SizedBox(
-                                            width: 20,
-                                            height: 20,
-                                            child: CircleAvatar(
-                                              radius: 10,
-                                              backgroundImage:
-                                                  NetworkImage(recipe.flag),
-                                            ),
+                                        // Verifica se há um ícone correspondente
+                                        SizedBox(
+                                          width: 20,
+                                          height: 20,
+                                          child: CircleAvatar(
+                                            radius: 10,
+                                            backgroundImage:
+                                                NetworkImage(recipe.flag),
                                           ),
+                                        ),
                                         Icon(
                                           recipe.isFavorite
                                               ? Icons.favorite

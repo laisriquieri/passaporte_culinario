@@ -16,14 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _loadContinents();
-  }
-
-  void _loadContinents() async {
-    List<Continent> continents = await _continentController.fetchContinents();
-    setState(() {
-      // Atualize a lista de continentes
-    });
   }
 
   @override
