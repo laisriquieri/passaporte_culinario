@@ -1,4 +1,5 @@
 class Recipe {
+  final int id;
   final String title;
   final List<String> images;
   final String description;
@@ -10,6 +11,7 @@ class Recipe {
   final List<String> steps;
 
   Recipe({
+    required this.id,
     required this.title,
     required this.images,
     required this.description,
@@ -23,6 +25,7 @@ class Recipe {
 
   factory Recipe.fromJson(Map<String, dynamic> json) {
     return Recipe(
+      id: json['id'],
       title: json['title'],
       images: List<String>.from(json['images']),
       description: json['description'],
@@ -37,6 +40,7 @@ class Recipe {
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id,
       'title': title,
       'images': images,
       'description': description,

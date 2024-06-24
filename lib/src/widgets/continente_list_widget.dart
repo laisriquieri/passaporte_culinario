@@ -37,7 +37,9 @@ class ContinenteListWidget extends StatelessWidget {
                   // Navegar para a nova tela quando o card for clicado
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => RecipeListPage()),
+                    MaterialPageRoute(
+                        builder: (context) => RecipeListPage(
+                            country: cardData.elementAt(index).name)),
                   );
                 },
                 child: Padding(
@@ -65,7 +67,8 @@ class ContinenteListWidget extends StatelessWidget {
                       Positioned(
                         top: 10,
                         right: 25,
-                        child: _buildCircleImage('assets/bandeira-brasil.png'),
+                        child:
+                            _buildCircleImage(cardData.elementAt(index).flag),
                       ),
                     ],
                   ),
@@ -91,7 +94,7 @@ class ContinenteListWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildCircleImage(String imagePath) {
+  Widget _buildCircleImage(String imageUrl) {
     return Container(
       width: 100,
       height: 100,
@@ -108,8 +111,8 @@ class ContinenteListWidget extends StatelessWidget {
         ],
       ),
       child: ClipOval(
-        child: Image.asset(
-          imagePath,
+        child: Image.network(
+          imageUrl,
           fit: BoxFit.cover,
         ),
       ),

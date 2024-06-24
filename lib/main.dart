@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:passaporte_culinario/src/pages/base_screen.dart';
 import 'package:passaporte_culinario/src/pages/recipe_list.dart';
 //import 'package:passaporte_culinario/src/pages/splashcreen.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       debugShowCheckedModeBanner: false,
-      home: RecipeListPage(),
+      home: BaseScreen(),
     );
   }
 }

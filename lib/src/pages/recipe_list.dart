@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/controllers/recipe_list.dart';
 import 'package:passaporte_culinario/src/models/recipe_list_item.dart';
-import 'receita.dart'; // Importando o arquivo receita.dart
+import 'receita.dart';
 
 class RecipeListPage extends StatefulWidget {
-  const RecipeListPage({Key? key}) : super(key: key);
+  const RecipeListPage({Key? key, required this.country}) : super(key: key);
+  final String country;
 
   @override
   _RecipeListPageState createState() => _RecipeListPageState();
@@ -55,7 +56,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.transparent,
-        title: Text('Pratos Típicos em ${cardSelecionado ?? ""}'),
+        title: Text('Pratos Típicos em ${widget.country ?? ""}'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,8 +70,8 @@ class _RecipeListPageState extends State<RecipeListPage> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (snapshot.hasError) {
-                  return const Center(
-                    child: Text('Erro ao carregar receitas'),
+                  return Center(
+                    child: Text('Erro ao carregar receitas: ${snapshot.error}'),
                   );
                 } else if (snapshot.hasData) {
                   List<RecipeListItem>? recipes = snapshot.data;
@@ -127,11 +128,10 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                     ),
                                   ),
                                   child: ListTile(
-                                    leading: const CircleAvatar(
-                                      radius:
-                                          30, // Ajuste o tamanho do círculo aqui
-                                      backgroundImage: AssetImage(
-                                          'assets/bandeira-brasil.png'),
+                                    leading: CircleAvatar(
+                                      radius: 30,
+                                      backgroundImage:
+                                          NetworkImage(recipe.foodPicture),
                                     ),
                                     title: Container(
                                       padding:
@@ -149,18 +149,31 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                           children: [
                                             const Icon(Icons.timelapse_outlined,
                                                 color: Color(0xffA23045)),
-                                            const SizedBox(
-                                              width: 8,
-                                            ),
+                                            const SizedBox(width: 8),
                                             Text(
                                               '${recipe.timeToCook} min',
                                               style: TextStyle(fontSize: 12),
                                             ),
                                           ],
                                         ),
-                                        Row(
-                                          children: buildCostIcons(recipe.cost),
+                                        SizedBox(
+                                          width: 80,
+                                          child: Row(
+                                            children:
+                                                buildCostIcons(recipe.cost),
+                                          ),
                                         ),
+                                        if (recipe.flag !=
+                                            null) // Verifica se há um ícone correspondente
+                                          SizedBox(
+                                            width: 20,
+                                            height: 20,
+                                            child: CircleAvatar(
+                                              radius: 10,
+                                              backgroundImage:
+                                                  NetworkImage(recipe.flag),
+                                            ),
+                                          ),
                                         Icon(
                                           recipe.isFavorite
                                               ? Icons.favorite
@@ -169,7 +182,6 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                         ),
                                       ],
                                     ),
-                                    // Adicione mais detalhes da receita conforme necessário
                                   ),
                                 ),
                               ),
@@ -180,7 +192,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
                     ],
                   );
                 }
-                return Container();
+                return Container(); // Caso não tenha dados ainda, retorna um container vazio
               },
             ),
           ),
