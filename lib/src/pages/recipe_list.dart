@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/controllers/recipe_list.dart';
 import 'package:passaporte_culinario/src/models/recipe_list_item.dart';
-import 'receita.dart';
+import 'recipe.dart';
 
 class RecipeListPage extends StatefulWidget {
   const RecipeListPage({Key? key, required this.country}) : super(key: key);
@@ -25,30 +25,15 @@ class _RecipeListPageState extends State<RecipeListPage> {
   @override
   void initState() {
     super.initState();
-    _loadRecipes();
   }
 
-  void _loadRecipes() async {
-    try {
-      await _recipeListController.fetchRecipeList();
-      setState(() {
-        // Atualize a lista de receitas
-      });
-    } catch (e) {
-      // Handle the error accordingly
-      print(e);
-    }
-  }
-
-  void navigateToNovaPagina() {
-    if (cardSelecionado != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => Receita(cardSelecionado.toString()),
-        ),
-      );
-    }
+  void navigateToNovaPagina(int id) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => RecipeDetailPage(id: id),
+      ),
+    );
   }
 
   @override
@@ -102,7 +87,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
                                   setState(() {
                                     cardSelecionado = recipe.id;
                                   });
-                                  navigateToNovaPagina();
+                                  navigateToNovaPagina(recipe.id);
                                 },
                                 child: Container(
                                   height: 100,
