@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:passaporte_culinario/src/controllers/recipe.dart';
 import 'package:passaporte_culinario/src/models/recipe.dart';
+import 'package:passaporte_culinario/src/widgets/favorite_icon_widget.dart';
 
 class RecipeDetailPage extends StatefulWidget {
   const RecipeDetailPage({super.key, required this.id});
@@ -54,7 +55,9 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                               Navigator.pop(context);
                             },
                           ),
-                          FavoriteIcon(),
+                          FavoriteIconWidget(
+                            isFavorite: recipe.isFavorite,
+                          ),
                         ],
                       ),
                     ),
@@ -240,32 +243,6 @@ class _CarouselWidgetState extends State<CarouselWidget> {
           }).toList(),
         ),
       ],
-    );
-  }
-}
-
-// ignore: use_key_in_widget_constructors
-class FavoriteIcon extends StatefulWidget {
-  @override
-  // ignore: library_private_types_in_public_api
-  _FavoriteIconState createState() => _FavoriteIconState();
-}
-
-class _FavoriteIconState extends State<FavoriteIcon> {
-  bool isFavorite = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        setState(() {
-          isFavorite = !isFavorite;
-        });
-      },
-      icon: Icon(
-        isFavorite ? Icons.favorite : Icons.favorite_border,
-        color: const Color(0xffA23045),
-      ),
     );
   }
 }

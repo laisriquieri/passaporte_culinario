@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/models/recipe_list_item.dart';
 import 'package:passaporte_culinario/src/pages/recipe.dart';
+import 'package:passaporte_culinario/src/widgets/favorite_icon_widget.dart';
 
 class RecipeListItemWidget extends StatefulWidget {
   const RecipeListItemWidget({super.key, required this.recipe});
@@ -40,7 +41,6 @@ class _RecipeListItemWidgetState extends State<RecipeListItemWidget> {
           navigateToRecipeDetailPage(widget.recipe.id);
         },
         child: Container(
-          height: 100,
           padding: const EdgeInsets.only(top: 8),
           decoration: BoxDecoration(
             boxShadow: [
@@ -62,6 +62,7 @@ class _RecipeListItemWidgetState extends State<RecipeListItemWidget> {
             ),
           ),
           child: ListTile(
+            titleAlignment: ListTileTitleAlignment.center,
             leading: CircleAvatar(
               radius: 30,
               backgroundImage: NetworkImage(widget.recipe.foodPicture),
@@ -79,7 +80,6 @@ class _RecipeListItemWidgetState extends State<RecipeListItemWidget> {
                   children: [
                     const Icon(Icons.timelapse_outlined,
                         color: Color(0xffA23045)),
-                    const SizedBox(width: 8),
                     Text(
                       '${widget.recipe.timeToCook} min',
                       style: const TextStyle(fontSize: 12),
@@ -101,11 +101,8 @@ class _RecipeListItemWidgetState extends State<RecipeListItemWidget> {
                     backgroundImage: NetworkImage(widget.recipe.flag),
                   ),
                 ),
-                Icon(
-                  widget.recipe.isFavorite
-                      ? Icons.favorite
-                      : Icons.favorite_border,
-                  color: const Color(0xffA23045),
+                FavoriteIconWidget(
+                  isFavorite: widget.recipe.isFavorite,
                 ),
               ],
             ),
