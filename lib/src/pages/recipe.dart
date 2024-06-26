@@ -17,6 +17,12 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
 
   int _currentImageIndex = 0;
 
+  List<Widget> buildCostIcons(int count) {
+    return List.generate(count, (index) {
+      return Icon(Icons.attach_money, color: Color(0xffA23045));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,30 +134,30 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                         Stack(
                                           alignment: Alignment.topCenter,
                                           children: [
-                                            const Icon(Icons.timelapse_outlined,
-                                                color: Color(0xffA23045)),
-                                            SizedBox(
-                                              width: 30,
-                                              child: Text(
-                                                '${recipe.timeToCook} min',
-                                                style: const TextStyle(
-                                                    fontSize: 8),
-                                              ),
+                                            Column(
+                                              children: [
+                                                const Icon(
+                                                    Icons.timelapse_outlined,
+                                                    color: Color(0xffA23045)),
+                                                Text(
+                                                  '${recipe.timeToCook} min',
+                                                  style: const TextStyle(
+                                                      fontSize: 12),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
-                                        const Icon(Icons.attach_money,
-                                            color: Color(0xffA23045)),
-                                        SvgPicture.asset(
-                                          'assets/brasil.svg',
+                                        Row(
+                                          children: buildCostIcons(recipe.cost),
+                                        ),
+                                        SizedBox(
                                           width: 20,
                                           height: 20,
-                                        ),
-                                        SvgPicture.asset(
-                                          'assets/food-steak.svg',
-                                          colorFilter: const ColorFilter.mode(
-                                            Color(0xffA23045),
-                                            BlendMode.srcIn,
+                                          child: CircleAvatar(
+                                            radius: 10,
+                                            backgroundImage:
+                                                NetworkImage(recipe.flag),
                                           ),
                                         ),
                                       ],

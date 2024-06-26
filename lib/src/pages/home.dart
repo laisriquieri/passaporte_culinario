@@ -24,7 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(25),
+            padding:
+                const EdgeInsets.only(top: 65, left: 35, right: 35, bottom: 25),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: '     Pesquisar',
+                  hintText: 'Pesquisar',
                   border: InputBorder.none,
                   suffixIcon: IconButton(
                     icon: const Icon(Icons.search),
@@ -45,85 +46,82 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.start, // Change to MainAxisAlignment.start
-              children: [
-                IconButton(
-                    icon: const Icon(Icons.filter_list),
-                    color: const Color(0xffA23045),
-                    onPressed: () {
-                      showModalBottomSheet(
-                        backgroundColor: Colors.transparent,
-                        context: context,
-                        builder: (BuildContext context) {
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                                top: 0, left: 15, right: 15, bottom: 20),
-                            child: Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    'Opções de Filtro',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  CheckboxListTile(
-                                    controlAffinity:
-                                        ListTileControlAffinity.leading,
-                                    checkColor: const Color(0xffA23045),
-                                    title: const Text('Carnes'),
-                                    value: false,
-                                    onChanged: (bool? value) {
-                                      // Ação ao selecionar/desmarcar "Carnes"
-                                    },
-                                  ),
-                                  CheckboxListTile(
-                                    controlAffinity:
-                                        ListTileControlAffinity.leading,
-                                    checkColor: const Color(0xffA23045),
-                                    title: const Text('Vegetariano'),
-                                    value: false,
-                                    onChanged: (bool? value) {
-                                      // Ação ao selecionar/desmarcar "Vegetariano"
-                                    },
-                                  ),
-                                  CheckboxListTile(
-                                    controlAffinity:
-                                        ListTileControlAffinity.leading,
-                                    checkColor: const Color(0xffA23045),
-                                    title: const Text('Vegano'),
-                                    value: false,
-                                    onChanged: (bool? value) {
-                                      // Ação ao selecionar/desmarcar "Vegetariano"
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      );
-                    }),
-              ],
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(bottom: 25),
-            child: Text(
-              'Viaje pelo mundo através da gastronomia',
-              style: TextStyle(
-                fontSize: 16,
-              ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 20),
+          //   child: Row(
+          //     mainAxisAlignment:
+          //         MainAxisAlignment.start, // Change to MainAxisAlignment.start
+          //     children: [
+          //       IconButton(
+          //           icon: const Icon(Icons.filter_list),
+          //           color: const Color(0xffA23045),
+          //           onPressed: () {
+          //             showModalBottomSheet(
+          //               backgroundColor: Colors.transparent,
+          //               context: context,
+          //               builder: (BuildContext context) {
+          //                 return Padding(
+          //                   padding: const EdgeInsets.only(
+          //                       top: 0, left: 15, right: 15, bottom: 20),
+          //                   child: Card(
+          //                     elevation: 4,
+          //                     shape: RoundedRectangleBorder(
+          //                       borderRadius: BorderRadius.circular(30),
+          //                     ),
+          //                     child: Column(
+          //                       crossAxisAlignment: CrossAxisAlignment.center,
+          //                       children: [
+          //                         const Text(
+          //                           'Opções de Filtro',
+          //                           style: TextStyle(
+          //                             fontSize: 20,
+          //                             fontWeight: FontWeight.bold,
+          //                           ),
+          //                         ),
+          //                         CheckboxListTile(
+          //                           controlAffinity:
+          //                               ListTileControlAffinity.leading,
+          //                           checkColor: const Color(0xffA23045),
+          //                           title: const Text('Carnes'),
+          //                           value: false,
+          //                           onChanged: (bool? value) {
+          //                             // Ação ao selecionar/desmarcar "Carnes"
+          //                           },
+          //                         ),
+          //                         CheckboxListTile(
+          //                           controlAffinity:
+          //                               ListTileControlAffinity.leading,
+          //                           checkColor: const Color(0xffA23045),
+          //                           title: const Text('Vegetariano'),
+          //                           value: false,
+          //                           onChanged: (bool? value) {
+          //                             // Ação ao selecionar/desmarcar "Vegetariano"
+          //                           },
+          //                         ),
+          //                         CheckboxListTile(
+          //                           controlAffinity:
+          //                               ListTileControlAffinity.leading,
+          //                           checkColor: const Color(0xffA23045),
+          //                           title: const Text('Vegano'),
+          //                           value: false,
+          //                           onChanged: (bool? value) {
+          //                             // Ação ao selecionar/desmarcar "Vegetariano"
+          //                           },
+          //                         ),
+          //                       ],
+          //                     ),
+          //                   ),
+          //                 );
+          //               },
+          //             );
+          //           }),
+          //     ],
+          //   ),
+          // ),
+          const Text(
+            'Viaje pelo mundo através da gastronomia',
+            style: TextStyle(
+              fontSize: 16,
             ),
           ),
           Expanded(
@@ -146,14 +144,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Continent continent = continents![index];
                       var cardData = continent.countries;
                       return Padding(
-                        padding: const EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(3),
                         child: ContinenteListWidget(
                             title: continent.name, cardData: cardData),
                       );
                     },
                   );
                 } else {
-                  return Center(
+                  return const Center(
                     child: Text('Nenhum continente encontrado'),
                   );
                 }

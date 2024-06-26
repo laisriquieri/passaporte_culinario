@@ -43,34 +43,29 @@ class ContinenteListWidget extends StatelessWidget {
                   );
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 0, left: 15),
-                  child: Stack(
-                    children: [
-                      Card(
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: SizedBox(
-                          width: 150,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              top: 160,
-                              right: 10,
-                              left: 50,
-                              bottom: 10,
-                            ),
-                            child: Text(cardData.elementAt(index).name),
+                  padding: const EdgeInsets.only(left: 15),
+                  child: Card(
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(padding: const EdgeInsets.only(top: 10)),
+                        _buildCircleImage(cardData.elementAt(index).flag),
+                        Spacer(),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          child: Text(
+                            cardData.elementAt(index).name,
+                            textAlign: TextAlign.center,
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: 10,
-                        right: 25,
-                        child:
-                            _buildCircleImage(cardData.elementAt(index).flag),
-                      ),
-                    ],
+                        const SizedBox(
+                          width: 160,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               );
