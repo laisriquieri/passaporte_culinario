@@ -51,7 +51,7 @@ class ContinenteListWidget extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        Padding(padding: const EdgeInsets.only(top: 10)),
+                        const Padding(padding: EdgeInsets.only(top: 10)),
                         _buildCircleImage(cardData.elementAt(index).flag),
                         Spacer(),
                         Padding(

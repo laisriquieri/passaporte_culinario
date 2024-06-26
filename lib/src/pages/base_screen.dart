@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/pages/home.dart';
 import 'package:passaporte_culinario/src/pages/favoritos.dart';
 import 'package:passaporte_culinario/src/pages/profile.dart';
+import 'package:passaporte_culinario/src/pages/trend_recipe_list.dart';
 
 class BaseScreen extends StatefulWidget {
   // ignore: use_super_parameters
@@ -23,6 +24,7 @@ class _BaseScreenState extends State<BaseScreen> {
         controller: pageController,
         children: [
           HomeScreen(),
+          const TrendRecipes(),
           const Favoritos(),
           const Profile(),
         ],
@@ -44,6 +46,10 @@ class _BaseScreenState extends State<BaseScreen> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
             label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.trending_up_rounded),
+            label: 'Tops',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border),
