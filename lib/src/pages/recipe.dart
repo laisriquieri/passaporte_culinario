@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:passaporte_culinario/src/controllers/recipe.dart';
 import 'package:passaporte_culinario/src/models/recipe.dart';
 
 class RecipeDetailPage extends StatefulWidget {
-  const RecipeDetailPage({Key? key, required this.id}) : super(key: key);
+  const RecipeDetailPage({super.key, required this.id});
   final int id;
 
   @override
+  // ignore: library_private_types_in_public_api
   _RecipeDetailPageState createState() => _RecipeDetailPageState();
 }
 
 class _RecipeDetailPageState extends State<RecipeDetailPage> {
   final RecipeController _recipeController = RecipeController();
 
-  int _currentImageIndex = 0;
-
   List<Widget> buildCostIcons(int count) {
     return List.generate(count, (index) {
-      return Icon(Icons.attach_money, color: Color(0xffA23045));
+      return const Icon(Icons.attach_money, color: Color(0xffA23045));
     });
   }
 
@@ -65,68 +63,13 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                height: 200.0,
-                                onPageChanged: (index, reason) {
-                                  _currentImageIndex = index;
-                                },
-                              ),
-                              items: recipe.images.map((image) {
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 5.0),
-                                      decoration: const BoxDecoration(
-                                        color: Colors.grey,
-                                      ),
-                                      child: Image.network(
-                                        image,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    );
-                                  },
-                                );
-                              }).toList(),
-                            ),
-                            const SizedBox(height: 8.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children:
-                                  recipe.images.asMap().entries.map((entry) {
-                                int index = entry.key;
-                                return Container(
-                                  width: 8.0,
-                                  height: 8.0,
-                                  margin: const EdgeInsets.symmetric(
-                                      vertical: 10.0, horizontal: 2.0),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: _currentImageIndex == index
-                                        ? const Color(0xffA23045)
-                                        : Colors.grey,
-                                  ),
-                                );
-                              }).toList(),
-                            ),
+                            CarouselWidget(recipe: recipe),
                             SingleChildScrollView(
                               child: Padding(
                                 padding: const EdgeInsets.all(16.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Center(
-                                      child: Text(
-                                        recipe.title,
-                                        style: const TextStyle(
-                                          fontSize: 24.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 16.0),
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
@@ -161,6 +104,24 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                                           ),
                                         ),
                                       ],
+                                    ),
+                                    const SizedBox(height: 16.0),
+                                    Center(
+                                      child: Text(
+                                        recipe.title,
+                                        style: const TextStyle(
+                                          fontSize: 24.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 16.0),
+                                    Text(
+                                      recipe.description,
+                                      style: const TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                     ),
                                     const SizedBox(height: 16.0),
                                     const Text(
@@ -214,6 +175,71 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
               return Container();
             }),
       ),
+    );
+  }
+}
+
+class CarouselWidget extends StatefulWidget {
+  final Recipe recipe;
+  const CarouselWidget({super.key, required this.recipe});
+
+  @override
+  State<CarouselWidget> createState() => _CarouselWidgetState();
+}
+
+class _CarouselWidgetState extends State<CarouselWidget> {
+  int _currentImageIndex = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            height: 200.0,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentImageIndex = index;
+              });
+            },
+          ),
+          items: widget.recipe.images.map((image) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: const BoxDecoration(
+                    color: Colors.grey,
+                  ),
+                  child: Image.network(
+                    image,
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            );
+          }).toList(),
+        ),
+        const SizedBox(height: 8.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: widget.recipe.images.asMap().entries.map((entry) {
+            int index = entry.key;
+            return Container(
+              width: 8.0,
+              height: 8.0,
+              margin:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _currentImageIndex == index
+                    ? const Color(0xffA23045)
+                    : Colors.grey,
+              ),
+            );
+          }).toList(),
+        ),
+      ],
     );
   }
 }

@@ -4,10 +4,11 @@ import 'package:passaporte_culinario/src/models/recipe_list_item.dart';
 import 'recipe.dart';
 
 class RecipeListPage extends StatefulWidget {
-  const RecipeListPage({Key? key, required this.country}) : super(key: key);
+  const RecipeListPage({super.key, required this.country});
   final String country;
 
   @override
+  // ignore: library_private_types_in_public_api
   _RecipeListPageState createState() => _RecipeListPageState();
 }
 
@@ -18,7 +19,7 @@ class _RecipeListPageState extends State<RecipeListPage> {
 
   List<Widget> buildCostIcons(int count) {
     return List.generate(count, (index) {
-      return Icon(Icons.attach_money, color: Color(0xffA23045));
+      return const Icon(Icons.attach_money, color: Color(0xffA23045));
     });
   }
 

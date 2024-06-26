@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Padding(
             padding:
-                const EdgeInsets.only(top: 65, left: 35, right: 35, bottom: 25),
+                const EdgeInsets.only(top: 65, left: 20, right: 20, bottom: 25),
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -33,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: TextField(
                 decoration: InputDecoration(
+                  prefix: const Padding(padding: EdgeInsets.only(left: 20)),
                   hintText: 'Pesquisar',
                   border: InputBorder.none,
                   suffixIcon: IconButton(
