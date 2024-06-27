@@ -76,13 +76,14 @@ class LetsGoState extends State<LetsGo> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: size.width,
-                  height: size.height,
+                Align(
+                  alignment: Alignment.bottomCenter,
                   child: Container(
-                    padding: const EdgeInsets.only(
-                        left: 32, right: 32, bottom: 50, top: 490),
+                    width: size.width,
+                    padding:
+                        const EdgeInsets.only(left: 32, right: 32, bottom: 50),
                     child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         SizedBox(
@@ -113,6 +114,7 @@ class LetsGoState extends State<LetsGo> {
                             ),
                           ),
                         ),
+                        SizedBox(height: 10),
                         SizedBox(
                           height: 50,
                           child: OutlinedButton(
