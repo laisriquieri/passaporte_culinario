@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:passaporte_culinario/src/pages/base_screen.dart';
+import 'package:passaporte_culinario/src/pages/splashcreen.dart';
 //import 'package:passaporte_culinario/src/pages/splashcreen.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       debugShowCheckedModeBanner: false,
-      home: BaseScreen(),
+      home: SplashScreen(),
     );
   }
 }

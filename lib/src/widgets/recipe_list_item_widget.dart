@@ -89,6 +89,7 @@ class _RecipeListItemWidgetState extends State<RecipeListItemWidget> {
                 SizedBox(
                   width: 80,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: buildCostIcons(widget.recipe.cost),
                   ),
                 ),
