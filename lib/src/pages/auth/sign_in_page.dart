@@ -24,10 +24,11 @@ class SignInScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         backgroundColor: CustomColors.customSwatchColor,
         body: Column(
           children: [
-            //Card branco
+            // Card branco
             Container(
               padding: const EdgeInsets.only(
                 left: 32,
@@ -90,21 +91,19 @@ class SignInScreen extends StatelessWidget {
               child: TabBarView(
                 children: [
                   // Login
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 32,
-                      vertical: 40,
-                    ),
-                    child: SingleChildScrollView(
+                  SingleChildScrollView(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 40,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          // Email
                           const CustomTextField(
                             icon: Icons.email,
                             label: "Email",
                           ),
-                          // Senha
                           const CustomTextField(
                             icon: Icons.lock,
                             label: "Senha",
@@ -122,10 +121,11 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 200,
+                          SizedBox(
+                            height: 20,
                           ),
                           SizedBox(
+                            width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -158,63 +158,49 @@ class SignInScreen extends StatelessWidget {
                   ),
                   // Criar Conta
                   SingleChildScrollView(
-                    child: SizedBox(
-                      height: size.height,
-                      width: size.width,
-                      child: Stack(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 40,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Column(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 32,
-                                  vertical: 40,
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    const CustomTextField(
-                                      icon: Icons.email,
-                                      label: 'Email',
-                                    ),
-                                    const CustomTextField(
-                                      icon: Icons.lock,
-                                      label: 'Senha',
-                                      isSecret: true,
-                                    ),
-                                    const CustomTextField(
-                                      icon: Icons.person,
-                                      label: 'Nome',
-                                    ),
-                                    const SizedBox(
-                                      height: 180,
-                                    ),
-                                    SizedBox(
-                                      height: 50,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor:
-                                              const Color(0xFF991b32),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(18),
-                                          ),
-                                        ),
-                                        onPressed: () {},
-                                        child: const Text(
-                                          'Cadastrar Usuário',
-                                          style: TextStyle(
-                                            color: Color(0xffffffff),
-                                            fontSize: 18,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                          const CustomTextField(
+                            icon: Icons.email,
+                            label: 'Email',
+                          ),
+                          const CustomTextField(
+                            icon: Icons.lock,
+                            label: 'Senha',
+                            isSecret: true,
+                          ),
+                          const CustomTextField(
+                            icon: Icons.person,
+                            label: 'Nome',
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            height: 50,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF991b32),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(18),
                                 ),
                               ),
-                            ],
+                              onPressed: () {},
+                              child: const Text(
+                                'Cadastrar Usuário',
+                                style: TextStyle(
+                                  color: Color(0xffffffff),
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),

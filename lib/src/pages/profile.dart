@@ -41,7 +41,6 @@ class _ProfileState extends State<Profile> {
                     radius: 40,
                   ),
                   title: Text('Nome do Usuário'),
-                  subtitle: Text('emailusuario@exemplo.com'),
                 ),
               ),
             ),
@@ -83,25 +82,25 @@ class _ProfileState extends State<Profile> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 35, right: 35, bottom: 15),
-            child: Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: ListTile(
-                title: const Text('Selecionar País'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => SelectCountryPage()),
-                  );
-                },
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 35, right: 35, bottom: 15),
+          //   child: Card(
+          //     elevation: 4,
+          //     shape: RoundedRectangleBorder(
+          //       borderRadius: BorderRadius.circular(15),
+          //     ),
+          //     child: ListTile(
+          //       title: const Text('Selecionar País'),
+          //       onTap: () {
+          //         Navigator.push(
+          //           context,
+          //           MaterialPageRoute(
+          //               builder: (context) => SelectCountryPage()),
+          //         );
+          //       },
+          //     ),
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.only(left: 35, right: 35, bottom: 15),
             child: Card(
