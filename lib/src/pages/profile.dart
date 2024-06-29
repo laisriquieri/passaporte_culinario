@@ -55,10 +55,11 @@ class _ProfileState extends State<Profile> {
               child: ListTile(
                 title: const Text('Informações Pessoais'),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => PersonalInfoPage()),
-                  );
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (c) {
+                      return PersonalInfoPage();
+                    },
+                  ));
                 },
               ),
             ),
@@ -126,6 +127,8 @@ class _ProfileState extends State<Profile> {
 }
 
 class PersonalInfoPage extends StatelessWidget {
+  const PersonalInfoPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,6 +143,8 @@ class PersonalInfoPage extends StatelessWidget {
 }
 
 class ChangePasswordPage extends StatelessWidget {
+  const ChangePasswordPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,6 +159,8 @@ class ChangePasswordPage extends StatelessWidget {
 }
 
 class SelectCountryPage extends StatelessWidget {
+  const SelectCountryPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -168,6 +175,8 @@ class SelectCountryPage extends StatelessWidget {
 }
 
 class HelpPage extends StatelessWidget {
+  const HelpPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

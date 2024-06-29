@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:passaporte_culinario/src/controllers/recipe_list.dart';
 import 'package:passaporte_culinario/src/models/recipe_list_item.dart';
+import 'package:passaporte_culinario/src/widgets/error_pictures_widget.dart';
 import 'package:passaporte_culinario/src/widgets/recipe_list_item_widget.dart';
+
+int getErrorCodeFromApi() {
+  return 404;
+}
 
 class Favoritos extends StatefulWidget {
   const Favoritos({Key? key}) : super(key: key);
@@ -15,6 +20,7 @@ class _FavoritosState extends State<Favoritos> {
 
   @override
   Widget build(BuildContext context) {
+    final int errorCode = getErrorCodeFromApi();
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.transparent,
@@ -33,7 +39,7 @@ class _FavoritosState extends State<Favoritos> {
                   );
                 } else if (snapshot.hasError) {
                   return Center(
-                    child: Text('Erro ao carregar receitas: ${snapshot.error}'),
+                    child: ErrorPicturesWidget(errorCode: errorCode),
                   );
                 } else if (snapshot.hasData) {
                   List<RecipeListItem>? recipes = snapshot.data;

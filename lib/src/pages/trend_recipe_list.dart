@@ -18,7 +18,7 @@ class _TrendRecipesState extends State<TrendRecipes> {
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.transparent,
-        title: Center(child: const Text('Receitas em Alta')),
+        title: const Center(child: Text('Receitas em Alta')),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

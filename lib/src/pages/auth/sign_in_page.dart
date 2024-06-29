@@ -19,8 +19,6 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -121,7 +119,7 @@ class SignInScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           SizedBox(
@@ -179,7 +177,7 @@ class SignInScreen extends StatelessWidget {
                             icon: Icons.person,
                             label: 'Nome',
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           SizedBox(

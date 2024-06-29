@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:passaporte_culinario/src/controllers/recipe.dart';
 import 'package:passaporte_culinario/src/models/recipe.dart';
+import 'package:passaporte_culinario/src/widgets/error_pictures_widget.dart';
 import 'package:passaporte_culinario/src/widgets/favorite_icon_widget.dart';
 
 class RecipeDetailPage extends StatefulWidget {
@@ -36,7 +37,7 @@ class _RecipeDetailPageState extends State<RecipeDetailPage> {
                 );
               } else if (snapshot.hasError) {
                 return Center(
-                  child: Text('Erro ao carregar receitas: ${snapshot.error}'),
+                  child: ErrorPicturesWidget(errorCode: 404),
                 );
               } else if (snapshot.hasData) {
                 Recipe recipe = snapshot.data!;
